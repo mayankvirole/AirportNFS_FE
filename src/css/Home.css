@@ -1,0 +1,27 @@
+.home{
+	display: flex;
+  justify-content: space-around;
+}
+
+.tab{
+	margin-top: 5rem;
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 4rem;
+}
+
+.tab >a{
+	text-decoration: none;
+	color: black;
+	margin: auto;
+	margin-top: 1rem;
+	font-size: larger;
+}
+
+.tab > a:hover {
+	color: #75DDDD;
+}
+
+.tab >img{
+ width: 10rem;
+}

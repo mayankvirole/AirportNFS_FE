@@ -1,0 +1,23 @@
+.admin{
+	margin-top: 5rem;
+}
+
+.inputs{
+	display: flex;
+	flex-direction: column;
+}
+
+.inputs > button {
+	width: fit-content;
+	margin : auto;
+	margin-top: 3rem;
+}
+
+.first {
+	display: flex;
+	justify-content: center;
+}
+
+.first > label{
+	width: 10rem;
+}
