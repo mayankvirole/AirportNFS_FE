@@ -42,24 +42,37 @@
 	margin-top: -1rem;
 	padding-left: 0;
 }
+
+.nav-admin > li {
+	padding: 1rem 7.5rem;
+	border: 1px solid white;
+	color: black;
+	font-size: 20px;
+	font-weight: 600;
+}
+
+.logout:hover{
+color: white;
+}
+
 .nav > li {
 	padding: 1rem 15rem;
 	border: 1px solid white;
 }
 
-.nav > li:hover {
+.nav > li:hover , .nav-admin > li:hover{
 	background-color: #FED99B;
 }
 
-.nav > li> a:hover{
+.nav > li> a:hover, .nav-admin > li> a:hover{
 	color: #FEFEFF;;
 }
 
-.nav > li >a {
+.nav > li >a , .nav-admin > li > a{
 	text-decoration: none;
 	color: black;
-	    font-size: 20px;
-    font-weight: 600;
+	font-size: 20px;
+	font-weight: 600;
 }
 
 

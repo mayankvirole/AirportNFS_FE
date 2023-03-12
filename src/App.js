@@ -7,6 +7,9 @@ import Home from './components/Home';
 import Admin from './components/Admin';
 import Supervisor from './components/Supervisor';
 import AdminMain from './components/Admin-Main';
+import AdminEdit from './components/Admin-Edit-Flight-Details';
+import AdminView from './components/Admin-View-Flight-Details';
+import AdminInfo from './components/Admin-Information';
 import {useState} from 'react';
 function App() {
   const[user, setUser] = useState("admin");
@@ -35,27 +38,27 @@ function App() {
             {(user === "admin") &&
               (<ul className='nav-admin'>
               <li>
-                <Link to="/home" >Edit Flight Details</Link>
+                <Link to="/ad-edit" >Edit Flight Details</Link>
               </li>
               <li>
-                <Link to="/arrival">Airport Supervisor Information</Link>
+                <Link to="/ad-info">Airport Supervisor Information</Link>
               </li>
               <li>
-                <Link to="/departure">View Flight Details</Link>
+                <Link to="/ad-view">View Flight Details</Link>
               </li>
-              <li>
+              <li className="logout">
                 Logout
               </li>
             </ul>)}
             {(user === "supervisor") &&
-              (<ul className='nav'>
+              (<ul className='nav nav-super'>
               <li>
                 <Link to="/home" >Flight Details</Link>
               </li>
               <li>
                 <Link to="/arrival">Flight Timings</Link>
               </li>
-              <li>
+              <li className="logout">
                 Logout
               </li>
             </ul>)}
@@ -68,6 +71,9 @@ function App() {
           <Route path='/admin' element={<Admin />} />
           <Route path='/supervisor' element={<Supervisor />} />
           <Route path='/ad-main' element={<AdminMain />} />
+          <Route path='/ad-edit' element={<AdminEdit />} />
+          <Route path='/ad-view' element={<AdminView />} />
+          <Route path='/ad-info' element={<AdminInfo />} />
         </Routes>
       </BrowserRouter>
     </div>

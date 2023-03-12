@@ -1,0 +1,20 @@
+.info {
+	display: flex;
+	flex-direction: column;
+}
+
+.info > span{
+	display: flex;
+	justify-content: center;
+	margin-bottom: 1rem;
+}
+
+.info > span >label {
+	width: 10rem;
+}
+
+.info > button {
+	width: fit-content;
+	margin: auto;
+	margin-top: 2rem;
+}
