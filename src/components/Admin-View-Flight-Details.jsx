@@ -1,5 +1,7 @@
 import {useState} from 'react';
 import axios from "axios";
+import "../css/AVFD.css"
+
 const ViewFlight = () => {
 
 	const [ data, setData] = useState([]);
@@ -17,6 +19,7 @@ const ViewFlight = () => {
 		<label htmlFor='search'>Flight Number</label>
 		<input type='text' id='search'></input>
 
+		<div className='data'>
 		<table>
 					<tr>
 						<th>Flight Number</th>
@@ -31,14 +34,15 @@ const ViewFlight = () => {
 					<tr>
 						<td>{data.flightNo}</td>
 						<td>{"Source"}</td>
-						<td>{airport}</td>
+						<td>{data.airport}</td>
 						<td>{data.Departure}</td>
-						<td>{terminal}</td>
+						<td>{data.terminal}</td>
 						<td>{data.duration}</td>
 						<td>{"halt station"}</td>
 						<td>{"halt timing"}</td>
 					</tr>
 				</table>
+				</div>
 		</>
 	)
 

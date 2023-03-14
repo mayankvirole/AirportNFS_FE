@@ -1,0 +1,13 @@
+.editor{
+	display: flex;
+  flex-direction: column;
+}
+
+.editor > span{
+	margin: 1rem 0;
+}
+
+.editor > button {
+	width: fit-content;
+	margin: auto;
+}
