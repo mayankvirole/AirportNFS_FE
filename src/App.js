@@ -10,9 +10,11 @@ import AdminMain from './components/Admin-Main';
 import AdminEdit from './components/Admin-Edit-Flight-Details';
 import AdminView from './components/Admin-View-Flight-Details';
 import AdminInfo from './components/Admin-Information';
+import SupervisorView from './components/Supervisor-Flight-Delay-Details';
+import SupervisorTiming from './components/Supervisor-Flight-Timings';
 import {useState} from 'react';
 function App() {
-  const[user, setUser] = useState("admin");
+  const[user, setUser] = useState("supervisor");
   const [active,setActive]=useState(false);
   return (
     <div className="App">
@@ -51,12 +53,12 @@ function App() {
               </li>
             </ul>)}
             {(user === "supervisor") &&
-              (<ul className='nav nav-super'>
+              (<ul className='nav'>
               <li>
-                <Link to="/home" >Flight Details</Link>
+                <Link to="/super-view" >Flight Details</Link>
               </li>
               <li>
-                <Link to="/arrival">Flight Timings</Link>
+                <Link to="/super-flight">Flight Timings</Link>
               </li>
               <li className="logout">
                 Logout
@@ -74,6 +76,8 @@ function App() {
           <Route path='/ad-edit' element={<AdminEdit />} />
           <Route path='/ad-view' element={<AdminView />} />
           <Route path='/ad-info' element={<AdminInfo />} />
+          <Route path='/super-view' element = {<SupervisorView />} />
+          <Route path='/super-flight' element = { <SupervisorTiming />} />
         </Routes>
       </BrowserRouter>
     </div>

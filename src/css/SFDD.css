@@ -1,0 +1,33 @@
+form {
+	display: flex;
+	flex-direction: column;
+	padding: 2rem;
+	border : 1px solid black;
+	margin-bottom: 3rem;
+}
+
+table , th, td{
+	border : 1px solid black;
+	margin-top : 0;
+	margin-right: 0;
+	margin-left: 0;
+}
+
+form > span {
+	display: flex;
+	padding: 1rem 0;
+}
+
+form > span > label {
+	width: 10rem;
+}
+
+button{
+	width: fit-content;
+	margin: auto;
+}
+
+.main{
+	display: flex;
+	justify-content: space-evenly;
+}
