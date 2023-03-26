@@ -2,36 +2,56 @@ import {useState} from 'react';
 import "../css/SFT.css";
 const Super=() => {
 
-	const [data, setData] = useState([{}])
+	const [data,setData]=useState([{}])
 
 	return (
-	<div className='super'>
+		<div className='super'>
 
-		<h2>Flight Timings</h2>
+			<h2>Flight Timings</h2>
 
-		<table>
-			<tr>
-				<th>Flight Number</th>
-				<th>Source</th>
-				<th>Departure</th>
-				<th>Destination</th>
-				<th>Arrival</th>
-				<th>Airline</th>
-				<th>Delay</th>
-				<th>Duration</th>
-			</tr>
-			<tr>
-				<td>{data.flightNo}</td>
-				<td>{"Source"}</td>
-				<td>{data.Departure}</td>
-				<td>{data.destination}</td>
-				<td>{data.arrival}</td>
-				<td>{data.airline}</td>
-				<td>{data.delay}</td>
-				<td>{data.duration}</td>
-			</tr>
-		</table>
-	</div>)
+			<table>
+				<tr>
+					<th>Flight Number</th>
+					<th>Source</th>
+					<th>Departure</th>
+					<th>Destination</th>
+					<th>Arrival</th>
+					<th>Airline</th>
+					<th>Delay</th>
+					<th>Duration</th>
+				</tr>
+				<tr>
+					<td>1019</td>
+					<td>DEL</td>
+					<td>11:00</td>
+					<td>LUC</td>
+					<td>04:00</td>
+					<td>Air India</td>
+					<td>00:05</td>
+					<td>05:05</td>
+				</tr>
+				<tr>
+					<td>1019</td>
+					<td>DEL</td>
+					<td>11:00</td>
+					<td>LUC</td>
+					<td>04:00</td>
+					<td>Air India</td>
+					<td>00:05</td>
+					<td>05:05</td>
+				</tr>
+				<tr>
+					<td>1019</td>
+					<td>DEL</td>
+					<td>11:00</td>
+					<td>LUC</td>
+					<td>04:00</td>
+					<td>Air India</td>
+					<td>00:05</td>
+					<td>05:05</td>
+				</tr>
+			</table>
+		</div>)
 }
 
 export default Super;

@@ -55,6 +55,11 @@
 color: white;
 }
 
+.logout {
+	font-size: larger;
+	font-weight: 600;
+}
+
 .nav > li {
 	padding: 1rem 15rem;
 	border: 1px solid white;

@@ -32,14 +32,24 @@ const ViewFlight = () => {
 						<th>Halt Time</th>
 					</tr>
 					<tr>
-						<td>{data.flightNo}</td>
-						<td>{"Source"}</td>
-						<td>{data.airport}</td>
-						<td>{data.Departure}</td>
-						<td>{data.terminal}</td>
-						<td>{data.duration}</td>
-						<td>{"halt station"}</td>
-						<td>{"halt timing"}</td>
+						<td>1019</td>
+						<td>DEL</td>
+						<td>IG</td>
+						<td>9:05</td>
+						<td>Air India</td>
+						<td>03:05</td>
+						<td>BEN</td>
+						<td>11:05</td>
+					</tr>
+					<tr>
+						<td>1006</td>
+						<td>MUM</td>
+						<td>FR</td>
+						<td>04:33</td>
+						<td>Indigo</td>
+						<td>05:00</td>
+						<td>HAR</td>
+						<td>09:40</td>
 					</tr>
 				</table>
 				</div>

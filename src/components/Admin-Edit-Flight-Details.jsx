@@ -9,7 +9,7 @@ return (<>
 	<div className='editor'>
 		<span>
 			<label>Flight Number</label>
-			<input value={data.flightNo} disabled></input>
+			<input value= "1009" ></input>
 		</span>
 
 		<span>
