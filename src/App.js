@@ -13,9 +13,15 @@ import AdminInfo from './components/Admin-Information';
 import SupervisorView from './components/Supervisor-Flight-Delay-Details';
 import SupervisorTiming from './components/Supervisor-Flight-Timings';
 import {useState} from 'react';
+import { useNavigate } from 'react-router-dom';
 function App() {
   const[user, setUser] = useState("supervisor");
   const [active,setActive]=useState(false);
+
+  const logout = () => {
+    const navigate = useNavigate();
+    navigate("/home")
+  }
   return (
     <div className="App">
       <BrowserRouter>
@@ -48,7 +54,7 @@ function App() {
               <li>
                 <Link to="/ad-view">View Flight Details</Link>
               </li>
-              <li className="logout">
+              <li className="logout" onClick={logout}>
                 Logout
               </li>
             </ul>)}
@@ -60,7 +66,7 @@ function App() {
               <li>
                 <Link to="/super-flight">Flight Timings</Link>
               </li>
-              <li className="logout">
+              <li className="logout" onClick={logout}>
                 Logout
               </li>
             </ul>)}
