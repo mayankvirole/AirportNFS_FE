@@ -1,6 +1,7 @@
 .info {
 	display: flex;
 	flex-direction: column;
+	text-align: center;
 }
 
 .info > span{
@@ -13,7 +14,7 @@
 	width: 10rem;
 }
 
-.info > button {
+.frm > button {
 	width: fit-content;
 	margin: auto;
 	margin-top: 2rem;

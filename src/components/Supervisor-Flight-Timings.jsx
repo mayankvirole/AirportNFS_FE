@@ -1,12 +1,28 @@
 import {useState} from 'react';
 import "../css/SFT.css";
+import Nav from './Nav';
+import {Link, useNavigate} from 'react-router-dom';
+
 const Super=() => {
-
+	const navigate=useNavigate();
 	const [data,setData]=useState([{}])
-
+	const Logout=() => {
+		navigate("/home")
+	}
 	return (
 		<div className='super'>
-
+			<Nav />
+			<ul className='nav'>
+				<li>
+					<Link to="/super-view" >Flight Details</Link>
+				</li>
+				<li>
+					<Link to="/super-flight">Flight Timings</Link>
+				</li>
+				<li className="logout" onClick={Logout}>
+					Logout
+				</li>
+			</ul>
 			<h2>Flight Timings</h2>
 
 			<table>

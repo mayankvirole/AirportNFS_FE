@@ -12,6 +12,7 @@ table , th, td{
 	margin-right: 0;
 	margin-left: 0;
 	height: fit-content;
+	padding: 0 0.5rem;
 }
 
 form > span {

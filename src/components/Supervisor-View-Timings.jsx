@@ -1,17 +1,33 @@
 import {useState} from 'react';
 import axios from "axios";
 import "../css/AVFD.css"
+import Nav from './Nav';
+import {Link,useNavigate} from 'react-router-dom';
 
 const ViewFlight=() => {
-
+	const navigate=useNavigate();
 	const [data,setData]=useState([]);
 	const getDetails=() => {
 		//api call
 	}
-
+	const Logout=() => {
+		navigate("/home")
+	}
 
 	return (
 		<>
+			<Nav />
+			<ul className='nav'>
+				<li>
+					<Link to="/super-view" >Flight Details</Link>
+				</li>
+				<li>
+					<Link to="/super-flight">Flight Timings</Link>
+				</li>
+				<li className="logout" onClick={Logout}>
+					Logout
+				</li>
+			</ul>
 			<h1>
 				View Flight Details
 			</h1>

@@ -1,8 +1,10 @@
 import {useEffect,useState} from 'react'
 import "../css/SFDD.css";
+import Nav from './Nav';
+import {Link, useNavigate} from 'react-router-dom';
 
 const Details=() => {
-
+	const navigate = useNavigate();
 	const [data,setData]=useState([
 		{flightNo: 1009,dest: "Goa",departure: "05:00",arrival: "09:05"}
 	]);
@@ -15,12 +17,28 @@ const Details=() => {
 		setVisible(!visible);
 	}
 
+	const Logout=() => {
+		navigate("/home")
+	}
+	
 	useEffect(() => {
 
 		getData();
 	},[])
 	return (
 		<>
+			<Nav />
+			<ul className='nav'>
+				<li>
+					<Link to="/super-view" >Flight Details</Link>
+				</li>
+				<li>
+					<Link to="/super-flight">Flight Timings</Link>
+				</li>
+				<li className="logout" onClick={Logout}>
+					Logout
+				</li>
+			</ul>
 			<h1>Flight Details</h1>
 
 			{data.map((d) => (

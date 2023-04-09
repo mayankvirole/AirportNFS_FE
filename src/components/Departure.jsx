@@ -1,5 +1,8 @@
+import {Link} from 'react-router-dom';
 import "../css/Arrival.css";
 import {useEffect,useState} from 'react';
+import Nav from './Nav';
+
 const Departure=() => {
 
 	const [airport, setAirport] = useState('');
@@ -11,24 +14,32 @@ const Departure=() => {
 	const onClick = () => {
 
 	}
-	const getAirports=() => {
-
-	}
-
-	const getTerminals=() => {
-
-	}
 
 	const getData = () => {
 
 	}
 	useEffect(() => {
-		getAirports();
-		getTerminals();
+
 	},[]);
 
 	return (
 		<div className='arr'>
+			<nav>
+					<Nav />
+					<nav>
+						<ul className='nav'>
+							<li>
+								<Link to="/home">Home</Link>
+							</li>
+							<li>
+								<Link to="/arrival">Arrival</Link>
+							</li>
+							<li>
+								<Link to="/departure">Departure</Link>
+							</li>
+						</ul>
+					</nav>
+				</nav>
 			<h2>Flight Departure Timings</h2>
 
 			<span className='inner'>
@@ -46,8 +57,8 @@ const Departure=() => {
 				</select>
 			</span>
 
-			<button type='submit' onClick={onClick} >Search</button>
-			{ terminal && airport && data &&
+			{/* <button type='submit' onClick={onClick} >Search</button> */}
+			{ 
 			<>
 				<table>
 					<tr>
@@ -58,11 +69,11 @@ const Departure=() => {
 						<th>Duration</th>
 					</tr>
 					<tr>
-						<td>{data.flightNo}</td>
-						<td>{airport}</td>
-						<td>{data.Departure}</td>
-						<td>{terminal}</td>
-						<td>{data.duration}</td>
+						<td>1099</td>
+						<td>Raja Bhoj Airport</td>
+						<td>10:45</td>
+						<td>2A</td>
+						<td>02:00</td>
 					</tr>
 				</table>
 			</>}

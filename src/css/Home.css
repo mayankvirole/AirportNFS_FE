@@ -1,6 +1,12 @@
 .home{
 	display: flex;
+	flex-direction: column;
   justify-content: space-around;
+}
+
+.inner {
+	display: flex;
+	justify-content: space-evenly;
 }
 
 .tab{

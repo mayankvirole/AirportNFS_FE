@@ -1,9 +1,30 @@
-const Supervisor = () => {
-	const onClick = () =>{
+import {useNavigate, Link} from 'react-router-dom';
+import Nav from './Nav';
 
+const Supervisor = () => {
+	const navigate = useNavigate();
+	
+	const onClick = () =>{
+		navigate("/home", { state : {user : "supervisor"}});
 	}
+
+	const Logout = () => {
+    navigate("/home")
+  }
 	return (
 		<div className='admin'>
+			<Nav/>
+			<ul className='nav'>
+				<li>
+					<Link to="/super-view" >Flight Details</Link>
+				</li>
+				<li>
+					<Link to="/super-flight">Flight Timings</Link>
+				</li>
+				<li className="logout" onClick={Logout}>
+					Logout
+				</li>
+			</ul>
 			<h2>Supervisor Login</h2>
 
 			<div className='inputs'>

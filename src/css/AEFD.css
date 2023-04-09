@@ -1,6 +1,7 @@
 .editor{
 	display: flex;
   flex-direction: column;
+	text-align: center;
 }
 
 .editor > span{
@@ -10,4 +11,9 @@
 .editor > button {
 	width: fit-content;
 	margin: auto;
+}
+
+.frm{
+	border :none;
+	align-items: center
 }

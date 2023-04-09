@@ -1,3 +1,6 @@
+.super {
+	text-align: center;
+}
 .super> table {
 	margin: auto;
 	margin-top: 2rem;
