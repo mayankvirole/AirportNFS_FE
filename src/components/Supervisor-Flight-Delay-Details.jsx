@@ -1,16 +1,42 @@
 import {useEffect,useState} from 'react'
 import "../css/SFDD.css";
 import Nav from './Nav';
-import {Link, useNavigate} from 'react-router-dom';
+import {Form, Link,useNavigate} from 'react-router-dom';
+import axios from 'axios';
 
 const Details=() => {
-	const navigate = useNavigate();
-	const [data,setData]=useState([
-		{flightNo: 1009,dest: "Goa",departure: "05:00",arrival: "09:05"}
-	]);
+	const navigate=useNavigate();
+	const [data,setData]=useState([]);
 	const [visible,setVisible]=useState(false);
-	const getData=() => {
 
+	let flight_number,
+	source,
+	departure,
+	destination,
+	arrival,
+	airlines,
+	duration,
+	halt_station,
+	halt_time;
+	const getData=() => {
+		axios.get("https://major-be.onrender.com/flight-details").then((data) => {
+			setData(data.data);
+			console.log(data.data);
+		})
+	}
+
+	const editDetails = (e) => {
+		e.preventDefault();
+		const formdata = new FormData(e.target);
+
+		const body = {}
+    formdata.forEach((value, property) => body[property] = value)
+		
+		body.flight_number = parseInt(body.flight_number);
+		// axios.post("https://major-be.onrender.com/edit-flight",body).then((res) => {
+		// 	if(res.status === 200)
+		// 	console.log("edited");
+		// })
 	}
 
 	const openForm=() => {
@@ -20,11 +46,11 @@ const Details=() => {
 	const Logout=() => {
 		navigate("/home")
 	}
-	
-	useEffect(() => {
 
-		getData();
+	useEffect(() => {
+		getData()
 	},[])
+
 	return (
 		<>
 			<Nav />
@@ -39,74 +65,32 @@ const Details=() => {
 					Logout
 				</li>
 			</ul>
-			<h1>Flight Details</h1>
-
-			{data.map((d) => (
-				<div className='main'>
-					<table>
-						<tr>
-							<th>Flight Number</th>
-							<th>Destination</th>
-							<th>Departure</th>
-							<th>Arrival</th>
-							<th>To Enter Delay Time</th>
-						</tr>
-						<tr>
-							<td>{d.flightNo}</td>
-							<td>{d.dest}</td>
-							<td>{d.departure}</td>
-							<td>{d.arrival}</td>
-							<td id="active" onClick={openForm}>Yes</td>
-						</tr>
-					</table>
-
-					{visible&&(
-						<form>
-							<span>
-								<label>Flight Number</label>
-								<input type='number' disabled value={d.flightNo}></input>
-							</span>
-							<span>
-								<label>Source</label>
-								<input type='text'></input>
-							</span>
-							<span>
-								<label>Destination</label>
-								<input type='text'></input>
-							</span>
-
-							<span>
-								<label>Departure</label>
-								<input type='text'></input>
-							</span>
-
-							<span>
-								<label>Arrival</label>
-								<input type='text'></input>
-							</span>
-							<span>
-								<label>Airlines</label>
-								<input type='text'></input>
-							</span>
-
-							<span>
-								<label>Halt Station</label>
-								<input type='text'></input>
-							</span>
-							<span>
-								<label>Halt Time</label>
-								<input type='text'></input>
-							</span>
-							<span>
-								<label>Duration</label>
-								<input type='text'></input>
-							</span>
-							<button>Enter Delay Timing</button>
-						</form>)}
-				</div>))}
-
-
-
+			<h1>Flight Details </h1>
+			
+			<div className='main'>
+				<table>
+					<tr>
+						<th>Flight Number</th>
+						<th>Destination</th>
+						<th>Source</th>
+						<th>Departure</th>
+						<th>Arrival</th>
+						<th>To Enter Delay Time</th>
+					</tr>
+					{(data&&data.map((d) => (
+						<>
+							<tr>
+								<td>{d.flight_number}</td>
+								<td>{d.source}</td>
+								<td>{d.destination}</td>
+								<td>{d.departure}</td>
+								<td>{d.arrival}</td>
+								<td><Link to='/edit-form' state={{ d : d}}>Yes</Link></td>
+							</tr>
+						</>
+					)))}
+				</table>
+			</div>
 		</>)
 }
 

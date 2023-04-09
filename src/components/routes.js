@@ -9,6 +9,7 @@ import AdminView from './Admin-View-Flight-Details';
 import AdminInfo from './Admin-Information';
 import SupervisorView from './Supervisor-Flight-Delay-Details';
 import SupervisorTiming from './Supervisor-Flight-Timings';
+import EditForm from './EditForm';
 import App from '../App';
 const routes = [
   {
@@ -17,7 +18,7 @@ const routes = [
     exact: true
   },
   {
-    path : '/home',
+    path : '/',
     component : Home,
     exact : true
   },
@@ -68,7 +69,12 @@ const routes = [
   },
   {
     path : '/',
-    component : App,
+    component : Home,
+    exact : true
+  },
+  {
+    path :'/edit-form',
+    component : EditForm,
     exact : true
   }
 ]

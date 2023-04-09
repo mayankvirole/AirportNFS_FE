@@ -17,6 +17,7 @@ import AdminInfo from './components/Admin-Information';
 import SupervisorView from './components/Supervisor-Flight-Delay-Details';
 import SupervisorTiming from './components/Supervisor-Flight-Timings';
 import App from './App';
+import EditForm from './components/EditForm';
 
 const router = createBrowserRouter([
   {
@@ -77,6 +78,11 @@ const router = createBrowserRouter([
   {
     path : '/',
     element : <App />,
+    exact : true
+  },
+  {
+    path : '/edit-form',
+    element : <EditForm />,
     exact : true
   }
 ])

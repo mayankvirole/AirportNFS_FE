@@ -1,9 +1,10 @@
-form {
+.frm {
 	display: flex;
 	flex-direction: column;
 	padding: 2rem;
 	border : 1px solid black;
 	margin-bottom: 3rem;
+	margin-top: 3rem;
 }
 
 table , th, td{
@@ -15,12 +16,12 @@ table , th, td{
 	padding: 0 0.5rem;
 }
 
-form > span {
+.frm > span {
 	display: flex;
 	padding: 1rem 0;
 }
 
-form > span > label {
+.frm > span > label {
 	width: 10rem;
 }
 
