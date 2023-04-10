@@ -3,7 +3,7 @@ import "../css/Admin.css";
 import axios from 'axios';
 import Nav from './Nav';
 import {useState} from 'react';
-
+import swal from "sweetalert";
 const Admin=() => {
 	const navigate = useNavigate();
 	const [id, setID] = useState(0);
@@ -19,10 +19,12 @@ const Admin=() => {
 
 	const onClick=() => {
 		axios.post("https://major-be.onrender.com/login", { id, password, role : "admin"} ).then((res) => {
-			console.log(res);
+			swal("Admin login successful !", "success");
 			navigate("/ad-edit");
 		})
-		
+		.catch((err) => {
+			swal("login failed!", "error");
+		})
 	}
 
   const Logout = () => {

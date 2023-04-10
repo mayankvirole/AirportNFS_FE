@@ -1,11 +1,29 @@
 import {useNavigate, Link} from 'react-router-dom';
 import Nav from './Nav';
-
+import axios from "axios";
+import swal from "sweetalert";
+import {useState} from 'react';
 const Supervisor = () => {
 	const navigate = useNavigate();
-	
+	const [id, setID] = useState(0);
+	const [password, setPassword] = useState("");
+
+		
+	const hCid = (e) => {
+		setID(e.target.value);
+	}
+
+	const hCp = (e) => {
+		setPassword(e.target.value)
+	}
 	const onClick = () =>{
-		navigate("/home", { state : {user : "supervisor"}});
+		axios.post("https://major-be.onrender.com/login", { id, password, role : "supervisor"} ).then((res) => {
+			swal("Supervisor login successful !", "success");
+			navigate("/super-view");
+		})
+		.catch((err) => {
+			swal("login failed!", "error");
+		})
 	}
 
 	const Logout = () => {
@@ -28,13 +46,13 @@ const Supervisor = () => {
 			<h2>Supervisor Login</h2>
 
 			<div className='inputs'>
-				<span className='first'>
-					<label for="id">ID</label>
-					<input type="text" id="id" />
+			<span className='first'>
+					<label htmlFor="literal">ID</label>
+					<input type="text" id="literal" placeholder='enter supervisor id' value={id} onChange={hCid} name='id'/>
 				</span>
 				<span className='first'>
-					<label for="pass">Password</label>
-					<input type="password" id="pass" />
+					<label htmlFor="pass">Password</label>
+					<input type="password" id="pass" value={password} onChange={hCp} name="password"/>
 				</span>
 				<button type="submit" onClick={onClick}>Login</button>
 			</div>
