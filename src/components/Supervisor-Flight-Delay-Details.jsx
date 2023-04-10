@@ -3,12 +3,12 @@ import "../css/SFDD.css";
 import Nav from './Nav';
 import {Form, Link,useNavigate} from 'react-router-dom';
 import axios from 'axios';
-
+import swal from "sweetalert";
+import Loader from './Loader';
 const Details=() => {
 	const navigate=useNavigate();
 	const [data,setData]=useState([]);
-	const [visible,setVisible]=useState(false);
-
+	const [loading, setLoading] = useState(false);
 	let flight_number,
 	source,
 	departure,
@@ -19,9 +19,10 @@ const Details=() => {
 	halt_station,
 	halt_time;
 	const getData=() => {
+		setLoading(true);
 		axios.get("https://major-be.onrender.com/flight-details").then((data) => {
 			setData(data.data);
-			console.log(data.data);
+			setLoading(false);
 		})
 	}
 
@@ -33,14 +34,12 @@ const Details=() => {
     formdata.forEach((value, property) => body[property] = value)
 		
 		body.flight_number = parseInt(body.flight_number);
-		// axios.post("https://major-be.onrender.com/edit-flight",body).then((res) => {
-		// 	if(res.status === 200)
-		// 	console.log("edited");
-		// })
-	}
-
-	const openForm=() => {
-		setVisible(!visible);
+		axios.post("https://major-be.onrender.com/edit-flight",body).then((res) => {
+			if(res.status === 200)
+			swal("data edited");
+		
+			navigate("/super-view");
+		})
 	}
 
 	const Logout=() => {
@@ -67,7 +66,7 @@ const Details=() => {
 			</ul>
 			<h1>Flight Details </h1>
 			
-			<div className='main'>
+			{!loading ? <div className='main'>
 				<table>
 					<tr>
 						<th>Flight Number</th>
@@ -90,7 +89,7 @@ const Details=() => {
 						</>
 					)))}
 				</table>
-			</div>
+			</div> : <Loader />}
 		</>)
 }
 

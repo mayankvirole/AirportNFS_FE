@@ -13,7 +13,20 @@
 	margin: auto;
 }
 
-.frm{
-	border :none;
-	align-items: center
+#frm{
+	display: flex;
+	flex-direction: column;
+	padding: 2rem;
+	border : none;
+	margin: auto;
+	align-items: center;
+}
+
+#frm > span {
+	display: flex;
+	padding: 1rem 0;
+}
+
+#frm > span > label {
+	width: 10rem;
 }

@@ -52,7 +52,7 @@ const Flight=() => {
 			
 			<div className='editor'>
 			<h1>Flight Details</h1>
-			<form className='frm' onSubmit={onClick}>
+			<form id='frm' onSubmit={onClick}>
 				<span>
 					<label>Flight Number</label>
 					<input value= {flight_number} name='flight_number'></input>

@@ -9,9 +9,7 @@ const ViewFlight=() => {
 
 	const [data,setData]=useState({});
 	let fno;
-	const getDetails=() => {
-		//api call
-	}
+
 	const navigate=useNavigate();
 	const handleChange = (e) => {
 		fno = parseInt(e.target.value);
@@ -64,6 +62,7 @@ const ViewFlight=() => {
 							<th>Flight Number</th>
 							<th>Source</th>
 							<th>Destination</th>
+							<th>Arrival</th>
 							<th>Departure</th>
 							<th>Airline</th>
 						</tr>
@@ -71,6 +70,7 @@ const ViewFlight=() => {
 							<td>{data.flight_number}</td>
 							<td>{data.source}</td>
 							<td>{data.destination}</td>
+							<td>{data.arrival}</td>
 							<td>{data.departure}</td>
 							<td>{data.airlines}</td>
 						</tr>

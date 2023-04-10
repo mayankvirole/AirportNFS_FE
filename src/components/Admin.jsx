@@ -4,11 +4,13 @@ import axios from 'axios';
 import Nav from './Nav';
 import {useState} from 'react';
 import swal from "sweetalert";
+import Loader from './Loader';
+
 const Admin=() => {
 	const navigate = useNavigate();
 	const [id, setID] = useState(0);
 	const [password, setPassword] = useState("");
-	
+	const [loading, setLoading] = useState(false);
 	const hCid = (e) => {
 		setID(e.target.value);
 	}
@@ -18,11 +20,14 @@ const Admin=() => {
 	}
 
 	const onClick=() => {
+		setLoading(true);
 		axios.post("https://major-be.onrender.com/login", { id, password, role : "admin"} ).then((res) => {
 			swal("Admin login successful !", "success");
 			navigate("/ad-edit");
+			setLoading(false);
 		})
 		.catch((err) => {
+			setLoading(false);
 			swal("login failed!", "error");
 		})
 	}
@@ -49,6 +54,7 @@ const Admin=() => {
 			</ul>
 			<h2>Admin Login</h2>
 
+			{!loading ? 
 			<div className='inputs'>
 				<span className='first'>
 					<label htmlFor="literal">ID</label>
@@ -59,7 +65,7 @@ const Admin=() => {
 					<input type="password" id="pass" value={password} onChange={hCp} name="password"/>
 				</span>
 				<button type="submit" onClick={onClick}>Login</button>
-			</div>
+			</div> : <Loader /> }
 		</div>
 	)
 }

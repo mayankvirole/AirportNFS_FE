@@ -3,11 +3,13 @@ import Nav from './Nav';
 import axios from "axios";
 import swal from "sweetalert";
 import {useState} from 'react';
+import Loader from './Loader';
+
 const Supervisor = () => {
 	const navigate = useNavigate();
 	const [id, setID] = useState(0);
 	const [password, setPassword] = useState("");
-
+	const [loading, setLoading] = useState(false);
 		
 	const hCid = (e) => {
 		setID(e.target.value);
@@ -17,12 +19,15 @@ const Supervisor = () => {
 		setPassword(e.target.value)
 	}
 	const onClick = () =>{
+		setLoading(true);
 		axios.post("https://major-be.onrender.com/login", { id, password, role : "supervisor"} ).then((res) => {
 			swal("Supervisor login successful !", "success");
+			setLoading(false);
 			navigate("/super-view");
 		})
 		.catch((err) => {
 			swal("login failed!", "error");
+			setLoading(false);
 		})
 	}
 
@@ -45,7 +50,7 @@ const Supervisor = () => {
 			</ul>
 			<h2>Supervisor Login</h2>
 
-			<div className='inputs'>
+			{!loading ? <div className='inputs'>
 			<span className='first'>
 					<label htmlFor="literal">ID</label>
 					<input type="text" id="literal" placeholder='enter supervisor id' value={id} onChange={hCid} name='id'/>
@@ -55,7 +60,7 @@ const Supervisor = () => {
 					<input type="password" id="pass" value={password} onChange={hCp} name="password"/>
 				</span>
 				<button type="submit" onClick={onClick}>Login</button>
-			</div>
+			</div> : <Loader />}
 		</div>
 	)
 	}

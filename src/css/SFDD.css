@@ -5,6 +5,7 @@
 	border : 1px solid black;
 	margin-bottom: 3rem;
 	margin-top: 3rem;
+	align-items: center;
 }
 
 table , th, td{

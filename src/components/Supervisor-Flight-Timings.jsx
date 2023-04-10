@@ -3,17 +3,21 @@ import "../css/SFT.css";
 import Nav from './Nav';
 import {Link, useNavigate} from 'react-router-dom';
 import axios from 'axios';
+import Loader from './Loader';
 
 const Super=() => {
 	const navigate=useNavigate();
 	const [data,setData]=useState([])
+	const [loading, setLoading] = useState(false);
 	const Logout=() => {
 		navigate("/home")
 	}
 
 	const getData=() => {
+		setLoading(true);
 		axios.get("https://major-be.onrender.com/flight-details").then((data) => {
 			setData(data.data);
+			setLoading(false);
 		}).catch((err) => console.log(err));
 	}
 
@@ -37,7 +41,7 @@ const Super=() => {
 			</ul>
 			<h2>Flight Timings</h2>
 
-			<div className='data'>
+			{!loading ? <div className='data'>
 				<table>
 					<tr>
 						<th>Flight Number</th>
@@ -60,7 +64,7 @@ const Super=() => {
 						</>
 					)))}
 				</table>
-			</div>
+			</div> : <Loader />}
 		</div>)
 }
 

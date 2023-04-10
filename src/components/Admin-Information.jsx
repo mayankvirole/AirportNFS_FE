@@ -42,7 +42,7 @@ const Information=() => {
 		
 		<div className='info'>
 		<h1>Airport Supervisor Information</h1>
-		<form className='frm' onSubmit={onClick}>
+		<form id='frm' onSubmit={onClick}>
 			<span>
 				<label htmlFor='name'>Name</label>
 				<input id='name' type='text' value={name} name='name'></input>

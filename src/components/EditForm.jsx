@@ -4,13 +4,13 @@ import Nav from './Nav';
 import {Form,Link,useLocation,useNavigate} from 'react-router-dom';
 import axios from 'axios';
 import swal from "sweetalert";
+import Loader from './Loader';
 
 const EditForm=(d) => {
 	const navigate=useNavigate();
 	let { state } = useLocation();
 	const [data,setData]=useState(state.d);
-	const [visible,setVisible]=useState(false);
-
+	const [loading, setLoading] = useState(false);
 	let flight_number,
 		source,
 		departure,
@@ -22,6 +22,7 @@ const EditForm=(d) => {
 		halt_time;
 
 	const editDetails=(e) => {
+		setLoading(true);
 		e.preventDefault();
 		const formdata=new FormData(e.target);
 
@@ -34,6 +35,7 @@ const EditForm=(d) => {
 			{
 				swal("Flight Details Edited", "success");
 				navigate("/super-view");
+				setLoading(false);
 			}
 			else
 			swal("Not edited data", "error");
@@ -62,7 +64,7 @@ const EditForm=(d) => {
 					Logout
 				</li>
 			</ul>
-			<form onSubmit={editDetails}>
+			{!loading ? <form onSubmit={editDetails}>
 				<div className='frm'>
 					<span>
 						<label>Flight Number</label>
@@ -105,7 +107,7 @@ const EditForm=(d) => {
 					</span>
 					<button>Enter Delay Timing</button>
 				</div>
-			</form>
+			</form> : <Loader/>}
 
 		</>
 	)
