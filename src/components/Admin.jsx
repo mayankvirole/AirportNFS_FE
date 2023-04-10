@@ -8,7 +8,7 @@ import Loader from './Loader';
 
 const Admin=() => {
 	const navigate = useNavigate();
-	const [id, setID] = useState(0);
+	const [id, setID] = useState();
 	const [password, setPassword] = useState("");
 	const [loading, setLoading] = useState(false);
 	const hCid = (e) => {
@@ -58,11 +58,11 @@ const Admin=() => {
 			<div className='inputs'>
 				<span className='first'>
 					<label htmlFor="literal">ID</label>
-					<input type="text" id="literal" placeholder='enter admin id' value={id} onChange={hCid} name='id'/>
+					<input type="text" id="literal" placeholder='Enter admin id' value={id} onChange={hCid} name='id'/>
 				</span>
 				<span className='first'>
 					<label htmlFor="pass">Password</label>
-					<input type="password" id="pass" value={password} onChange={hCp} name="password"/>
+					<input type="password" id="pass" value={password} onChange={hCp} name="password" placeholder='Enter your password'/>
 				</span>
 				<button type="submit" onClick={onClick}>Login</button>
 			</div> : <Loader /> }

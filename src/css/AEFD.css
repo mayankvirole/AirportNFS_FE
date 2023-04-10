@@ -30,3 +30,7 @@
 #frm > span > label {
 	width: 10rem;
 }
+
+.side > input{
+margin: 1rem;
+}

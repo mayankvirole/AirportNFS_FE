@@ -53,7 +53,7 @@ const ViewFlight=() => {
 					View Flight Details
 				</h1>
 				<label htmlFor='search'>Flight Number</label>
-				<input type='text' id='search' name='fno' value={fno} onChange={handleChange}></input>
+				<input type='text' id='search' name='fno' value={fno} onChange={handleChange} placeholder='Enter a flight number'></input>
 				<button onClick={onClick}>Search Flight Details</button>
 				{(data && data.flight_number && 
 				<div className='data'>

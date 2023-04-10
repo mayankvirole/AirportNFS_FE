@@ -1,16 +1,9 @@
-import {Outlet,Link,useLocation,Route,Routes,} from "react-router-dom";
+import {Link} from "react-router-dom";
 import "../css/Home.css";
 import adm from "../assets/admin.png";
 import sup from "../assets/supervisor.png";
-import {useEffect,useState} from 'react';
 import Nav from './Nav';
 const Home=() => {
-	// let { state} = useLocation();
-	const [disable,setDisable]=useState(false)
-
-	const onClick=() => {
-
-	}
 
 	return (
 		<>
@@ -34,12 +27,12 @@ const Home=() => {
 				<div className='inner'>
 					<div className='tab'>
 						<img src={adm} alt='admin' />
-						<Link to='/admin' onClick={onClick} >Admin</Link>
+						<Link to='/admin' >Admin</Link>
 					</div>
 
 					<div className='tab'>
 						<img src={sup} alt='supervisor' />
-						<Link to='/supervisor' onClick={onClick}>Supervisor</Link>
+						<Link to='/supervisor'>Supervisor</Link>
 					</div>
 				</div>
 			</div>

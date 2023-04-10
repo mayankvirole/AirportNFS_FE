@@ -45,15 +45,15 @@ const Information=() => {
 		<form id='frm' onSubmit={onClick}>
 			<span>
 				<label htmlFor='name'>Name</label>
-				<input id='name' type='text' value={name} name='name'></input>
+				<input id='name' type='text' value={name} name='name' placeholder='enter name for supervisor'></input>
 			</span>
 			<span>
 				<label htmlFor='airport'>Airport</label>
-				<input type='text' id='airport' value={airport} name='airport'></input>
+				<input type='text' id='airport' value={airport} name='airport' placeholder='enter airport name'></input>
 			</span>
 			<span>
 				<label htmlFor='password'>Password</label>
-				<input type="password" id='password' value={password} name='password'></input>
+				<input type="password" id='password' value={password} name='password' placeholder='enter password'></input>
 			</span>
 			<button type='submit'>Add Supervisor Information </button>
 			</form>
