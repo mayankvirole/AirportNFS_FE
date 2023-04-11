@@ -10,7 +10,6 @@ import Departure from './components/Departure';
 import Home from './components/Home';
 import Admin from './components/Admin';
 import Supervisor from './components/Supervisor';
-import AdminMain from './components/Admin-Main';
 import AdminEdit from './components/Admin-Edit-Flight-Details';
 import AdminView from './components/Admin-View-Flight-Details';
 import AdminInfo from './components/Admin-Information';
@@ -20,11 +19,6 @@ import App from './App';
 import EditForm from './components/EditForm';
 
 const router = createBrowserRouter([
-  {
-    path: '/ad-main',
-    element: <AdminMain />,
-    exact: true
-  },
   {
     path : '/home',
     element : <Home/>,

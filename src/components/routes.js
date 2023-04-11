@@ -3,7 +3,6 @@ import Departure from './Departure';
 import Home from './Home';
 import Admin from './Admin';
 import Supervisor from './Supervisor';
-import AdminMain from './Admin-Main';
 import AdminEdit from './Admin-Edit-Flight-Details';
 import AdminView from './Admin-View-Flight-Details';
 import AdminInfo from './Admin-Information';
@@ -12,11 +11,6 @@ import SupervisorTiming from './Supervisor-Flight-Timings';
 import EditForm from './EditForm';
 import App from '../App';
 const routes = [
-  {
-    path: '/ad-main',
-    component: AdminMain,
-    exact: true
-  },
   {
     path : '/',
     component : Home,

@@ -16,11 +16,11 @@ const Home=() => {
 								<Link to="/home">Home</Link>
 							</li>
 							<li>
-								<Link to="/arrival">Arrival</Link>
+								<Link to="/arrival">Flight Timings by Airport</Link>
 							</li>
-							<li>
+							{/* <li>
 								<Link to="/departure">Departure</Link>
-							</li>
+							</li> */}
 						</ul>
 					</nav>
 				</nav>
